@@ -52,9 +52,9 @@ urlpatterns = [
         name="toggle-car-assign",
     ),
     path(
-         "drivers/",
-         DriverListView.as_view(),
-         name="driver-list"
+        "drivers/",
+        DriverListView.as_view(),
+        name="driver-list"
     ),
     path(
         "drivers/<int:pk>/",
