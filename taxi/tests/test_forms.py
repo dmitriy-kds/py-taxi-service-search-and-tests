@@ -1,6 +1,7 @@
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from taxi.forms import DriverCreationForm
+from taxi.forms import DriverCreationForm, validate_license_number
 
 
 class FormTests(TestCase):
@@ -34,3 +35,12 @@ class FormTests(TestCase):
         self.assertTrue(license_number[:3].isupper())
         self.assertTrue(license_number[:3].isalpha())
         self.assertTrue(license_number[3:].isdigit())
+        self.assertTrue(validate_license_number(license_number))
+
+    def test_invalid_license_number(self):
+        license_number = "AAA123"
+        self.assertRaises(
+            ValidationError,
+            validate_license_number,
+            license_number
+        )

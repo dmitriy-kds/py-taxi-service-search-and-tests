@@ -19,7 +19,7 @@ class ModelTests(TestCase):
             first_name="Test First Name",
             last_name="Test Last Name",
             username="Test Username",
-            license_number="Test License NUmber",
+            license_number="Test License Number",
         )
         self.assertEqual(
             str(driver),
@@ -31,7 +31,7 @@ class ModelTests(TestCase):
             first_name="Test First Name",
             last_name="Test Last Name",
             username="Test Username",
-            license_number="Test License NUmber",
+            license_number="Test License Number",
         )
         url = reverse("taxi:driver-detail", kwargs={"pk": driver.id})
         self.assertEqual(driver.get_absolute_url(), url)
